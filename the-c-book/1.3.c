@@ -35,7 +35,12 @@ int getIntIt() {
 			atChar++;
 		}
 	}
-	if (validInput == -1) return -1;
+	if (validInput == -1) {
+		printf("Not an integer.\n");
+		int c;
+		while((c = getchar()) != '\n' && c != EOF ) { } // Flush remaining input
+		return -1;
+	}
 	int result;
 	sscanf(input, "%d", &result);
 	return result;
@@ -43,6 +48,7 @@ int getIntIt() {
 int getInt() {
 	int validAbsInt = -1;
 	while(validAbsInt == -1) {
+		printf("Enter a valid, absolute integer: ");
 		validAbsInt = getIntIt();
 	}
 	return validAbsInt;
