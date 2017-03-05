@@ -44,3 +44,15 @@ A loss of precision at best, undefined behaviour at worst. If you want portabili
 ##### Exercise 2.14. What predictions can you make about a program showing ‘undefined behaviour’?
 
 Not a fuck of a lot m80.
+
+##### Exercise 2.15. Assuming that chars, ints and longs are respectively 8, 16 and 32 bits long, and that char defaults to unsigned char on a given system, what is the resulting type of expressions involving the following combinations of variables, after the usual arithmetic conversions have been applied?
+
+1. Simply signed char: Signed int
+2. Simply unsigned char: Unsigned int
+3. int, unsigned int: Unsigned int
+4. unsigned int, long: Unsigned long
+5. int, unsigned long: Unsigned long
+6. char, long: Signed long
+7. char, float: Float
+8. float, float: Float
+9. float, long double: Long Double
