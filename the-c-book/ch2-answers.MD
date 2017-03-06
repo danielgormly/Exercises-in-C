@@ -56,3 +56,16 @@ Not a fuck of a lot m80.
 7. char, float: Float
 8. float, float: Float
 9. float, long double: Long Double
+
+##### Exercise 2.16. Given the following variable definitions
+    int i1, i2;
+    float f1, f2;
+1. How would you find the remainder when i1 is divided by i2? `i1 % i2;`
+2. How would you find the remainder when i1 is divided by the value of f1, treating f1 as an integer? `i1 % (int) f1`
+3. What can you predict about the sign of the remainders calculated in the previous two questions? `The sign is implementation defined.`
+4. What meanings can the - operator have? **minus (binary) or sign (unary)**
+5. How would you turn off all but the low-order four bits in i1? `i1 &= 15`
+6. How would you turn on all the low-order four bits in i1? `i1 |= 15`
+7. How would you turn off only the low-order four bits in i1? `i1 &= ~15`
+8. How would you put into i1 the low-order 8 bits in i2, but swapping the significance of the lowest four with the next `i1 = (i1 & ~0xff) | ((i2 & 0xf) << 4) | (i2 >> 4 & ~0xf)`
+9. What is wrong with the following expression? `f2 = ++f1 + ++f1;` **You can't guarantee the order that the incremental unary operators will evaluate and return in. So don't use two in one expression.**
