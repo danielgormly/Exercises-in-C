@@ -68,4 +68,49 @@ Not a fuck of a lot m80.
 6. How would you turn on all the low-order four bits in i1? `i1 |= 15`
 7. How would you turn off only the low-order four bits in i1? `i1 &= ~15`
 8. How would you put into i1 the low-order 8 bits in i2, but swapping the significance of the lowest four with the next `i1 = (i1 & ~0xff) | ((i2 & 0xf) << 4) | (i2 >> 4 & ~0xf)`
-9. What is wrong with the following expression? `f2 = ++f1 + ++f1;` **You can't guarantee the order that the incremental unary operators will evaluate and return in. So don't use two in one expression.**
+9. What is wrong with the following expression? `f2 = ++f1 + ++f1;` **You can't guarantee when incremental unary operators will evaluate i.e. they may be evaluated once the expression is over. So don't use two in one expression.**
+
+##### Exercise 2.17. First, fully parenthesize the following expressions according to the precedence and associativity rules. Then, replacing the variables and constants with the appropriate type names, show how the type of the expression is derived by replacing the highest precedence expressions with its resulting type.
+
+The variables are:
+
+    char c;
+    int i;
+    unsigned u;
+    float f;
+    
+##### a) `c = u * f + 2.6L;`
+1. `(c = (u * f) + 2.6L);`
+2. `(char = (unsigned * float) + long);`
+3. `(char = float + long);`
+4. `(char = float);`
+5. `char /* assignment */`
+
+##### b) `u += --f / u % 3;
+1. `(u + = (((--f) / u) % 3));`
+2. `(unsigned + ((float / unsigned) % 3));`
+3. `(unsigned + (float % 3));`
+4. Compiler error - invalid operands to binary
+
+##### c) `i <<= u * - ++f;`
+1. `(i <<= (u * (- (++f))));`
+2. `(int <<= (unsigned * (- float)));`
+3. `(int <<= (unsigned * float));`
+4. `(int <<= float;)`
+
+##### d) `u = i + 3 + 4 + 3.1;`
+1. `(u = (i + (3 + (4 + 3.1)));`
+2. `(unsigned = (int + (int + (int + float)));`
+3. `(unsigned = (int + (int + float)));`
+4. `(unsigned = (int + float));`
+5. `(unsigned = float);`
+
+##### e) `u = 3.1 + i + 3 + 4;`
+1. `(unsigned = float + int + int + int);`
+2. `(unsigned = float)`
+
+##### f) `c = (i << - --f) & 0xf;`
+1. `(char = ((int << (- (--f))) & 0xf));`
+2. `(char = ((int << float) & int);`
+3. `(char = (float & int);`
+4. `(char = float);`
