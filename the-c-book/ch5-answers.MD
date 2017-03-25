@@ -12,3 +12,5 @@ It is valid to compare the values of two pointers when they both point into the 
 If you're expecting a valid pointer but can't return one, for example, you can return a null pointer in its place. You can assign it to any pointer variable and it is guaranteed not to point to any real object.
 
 ##### Exercise 5.6 Explain the examples using malloc to somebody else.
+
+Malloc returns the pointer i.e. a typed reference to a memory address to available memory with the byte size specified by its arguments.
