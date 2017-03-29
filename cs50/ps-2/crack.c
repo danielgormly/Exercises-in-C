@@ -18,8 +18,7 @@ char * inputHash;
 char inputSalt[2];
 
 int main(int argc, char *argv[]) {
-    int valid = validateArgCount(argc);
-    if (valid != 1) return EXIT_FAILURE;
+    if (!validateArgCount(argc)) return EXIT_FAILURE;
     
     inputHash = argv[1];
     setSalt(argv[1]);
