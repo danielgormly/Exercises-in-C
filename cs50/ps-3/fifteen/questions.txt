@@ -1,4 +1,11 @@
-0. TODO
-1. TODO
-2. TODO
-3. TODO
+0. Besides 4 × 4 (which are Game of Fifteen’s dimensions), what other dimensions does the framework allow?
+Any squared int structure between 3 & 9, inclusive.
+
+1. With what sort of data structure is the game’s board represented?
+Initially, a fixed length d-length array of a d-length array of ints. But I am a baller so I'm going to do this as a pointer to an int with memory allocated with malloc().
+
+2. What function is called to greet the player at game’s start?
+`greet();`
+
+3. What functions do you apparently need to implement?
+draw, init, move, won
